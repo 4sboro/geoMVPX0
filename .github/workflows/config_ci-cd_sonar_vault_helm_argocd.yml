@@ -3,7 +3,7 @@ name: Geolocation App CI/CD
 on:
   push:
     branches:
-      - main
+      - "*"
 
 permissions:
   id-token: write
@@ -18,7 +18,7 @@ env:
   AWS_REGION: ${{ secrets.AWS_REGION }}
   VAULT_URL: ${{ secrets.VAULT_URL }}
 
-  # Variables with default values
+  # Variables with default valuesg
   HELM_REPO: ${{ secrets.HELM_REPO || 'utrains-helm' }}
   ECR_PATH: 'dkr.ecr'
   AWS_DOMAIN: 'amazonaws.com'
