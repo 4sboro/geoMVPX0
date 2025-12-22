@@ -14,7 +14,7 @@ env:
   ARTIFACTORY_URL: ${{ secrets.ARTIFACT_URL }}
   SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-  ECR_ROLE: ${{ secrets.AWS_ROLE_ARN }}
+  ECR_ROLE: ${{ secrets.ROLE }}
   AWS_REGION: ${{ secrets.AWS_REGION }}
   VAULT_URL: ${{ secrets.VAULT_URL }}
 
@@ -111,7 +111,7 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ env.ECR_ROLE }}
+          role-to-assume: ${{ ECR_ROLE}}
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Download JAR file artifact
